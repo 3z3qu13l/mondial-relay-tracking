@@ -14,6 +14,5 @@ module.exports = {
 
     MILLISEC_IN_DAYS: 86400000,
 
-    DEFAULT_POSTAL_CODE: 54190,
     COLORS
 };
