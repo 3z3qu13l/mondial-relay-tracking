@@ -1,0 +1,403 @@
+<style>
+    .bouton_grey {
+        padding: 4px 20px;
+        background: #adadad !important;
+        color: #fff;
+        font-family: Arial, Helvetica, Sans-serif;
+        border: none;
+        border-radius: 3px;
+        border-top: 1px solid #c0c0c0 !important;
+        border-bottom: 1px solid #929090 !important;
+        text-transform: none;
+        font-size: 14px;
+        text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px;
+        -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px;
+        white-space: nowrap;
+        *border: none;
+    }
+
+    .bouton_grey:hover {
+        color: #fff;
+    }
+</style>
+
+<div class="grid">
+    <div class="row">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 mb20 mt30">
+                <ul class="timeline suivi center-element">
+                    <li class="validate">
+                        <p>Colis en pr&#233;paration chez l&#39;exp&#233;diteur</p>
+                    </li>
+                    <li class="validate">
+                        <p>Colis remis &#224; Mondial Relay</p>
+                    </li>
+                    <li class="validate">
+                        <p>Colis en traitement sur le site logistique de destination.</p>
+                    </li>
+                    <li class="validate">
+                        <p>Colis disponible au Point Relais</p>
+                    </li>
+                    <li class="validate">
+                        <p>Colis livr&#233; au destinataire</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 mb30">
+                <div class="infos-account">
+                    <div class="bloc mb-0 infos-colis suivre pt10">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 f-right">
+                            <a class="more-details " href="javascript:void(0)"><span class="icon-minus
+                                    f-right"></span></a>
+                        </div>
+                        <div class="hidden-xs col-sm-1 col-md-1 col-lg-1 f-left pt10">
+
+
+                            <span class="icon-suivi_colis"><span class="path1"></span><span class="path2"></span></span>
+                        </div>
+                        <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 f-left">
+                            <p>08/11/2022</p>
+                        </div>
+                        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 f-left">
+                            <h5></h5>
+
+                        </div>
+                    </div>
+                    <div class="bloc bg-white detail-infos">
+                        <style>
+                            .bg-alert-border {
+                                border: solid 1px #96154a !important;
+                            }
+
+                            .bg-alert-border-none {
+                                border: none !important;
+                            }
+
+                            .bg-alert-color {
+                                background: #96154a !important;
+                            }
+
+                            .bg-alert-color p {
+                                color: #96154a !important;
+                            }
+
+                            .bg-alert-link {
+                                text-decoration: underline !important;
+                                text-decoration-color: #96154a !important;
+                                color: #96154a !important;
+                            }
+                        </style>
+                        <div class="step-suivi">
+                            <div class="col-xs-4 col-sm-3 col-md-3 ">
+                                <p class="center">18:03</p>
+                            </div>
+                            <div class="col-xs-8 col-sm-9 col-md-9">
+                                <p>Colis livr&#233; au destinataire</p>
+                            </div>
+                            <div class="col-xs-4 col-sm-3 col-md-3 "></div>
+                            <div class="col-xs-8 col-sm-9 col-md-9 ">
+                                <p>Votre colis a été livré.</p>
+                            </div>
+                            <div class="step-suivi line-t">
+
+
+                                <input type="hidden" id="numeroTemp" value=123456 />
+                                <input type="hidden" id="codePaysTemp" value=FR />
+
+                                <script src="/Scripts/PointCollecteLivraison/CarteResponsive.js?1.11.0"
+                                    type="text/javascript"></script>
+
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-2 col-md-2 mb15">
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4 col-md-4 mb15">
+                                            <div id="SummaryPCLRecap-eb8bbf71-6984-4922-8cdf-123456"
+                                                class=" PCL_Details_ToHide pt15 mt20">
+                                            </div>
+                                            <script>
+                                                $.ajax({
+                                                    contentType: 'application/json; charset=utf-8',
+                                                    dataType: 'json',
+                                                    url: '/_mvc/fr-FR/Map/SummaryInfosPointsRelais',
+                                                    data: JSON.stringify({ 'codePays': 'FR', 'numero': '123456' }),
+                                                    type: 'POST',
+                                                    async: false,
+                                                    success: function (data) {
+                                                        if (data != undefined && data != "") {
+                                                            $("#SummaryPCLRecap-eb8bbf71-6984-4922-8cdf").html(data);
+                                                        }
+                                                    }
+                                                });
+                                            </script>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <input type="button" id="btn_pcl_afficher_details" class="btn
+                                                btn-primary center-block mt30" value="Voir la fiche du Point
+                                                Relais&#174; | Locker" onclick='displayDetails123456()' />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12" id="PRDetails">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6 col-md-4">
+                                            <div id="SummaryPCLRecap-eb8bbf71-6984-4922-8cdf" class="
+                                                PCL_Details hide">
+                                            </div>
+                                            <script>
+                                                $.ajax({
+                                                    contentType: 'application/json; charset=utf-8',
+                                                    dataType: 'json',
+                                                    url: '/_mvc/fr-FR/Map/SummaryInfosPointsRelais',
+                                                    data: JSON.stringify({ 'codePays': 'FR', 'numero': '123456', 'displayPhoto': false, 'displayTexteOnlySuiviColis': true }),
+                                                    type: 'POST',
+                                                    async: false,
+                                                    success: function (data) {
+                                                        if (data != undefined && data != "") {
+                                                            $("#SummaryPCLRecap-eb8bbf71-6984-4922-8cdf").html(data);
+                                                        }
+                                                    }
+                                                });
+                                            </script>
+
+                                            <div class="points_relais PCL_Details hide">
+                                                <div id="MR-Map-Detail-eb8bbf71-6984-4922-8cdf"
+                                                    style="width: 100%; height: 250px;float:left;clear:both;"
+                                                    class="mb15 resetcss gmaps hidden-xs"></div>
+                                                <script type="text/javascript">
+                                                    function displayDetails123456() {
+                                                        $(".PCL_Details").removeClass("hide");
+                                                        $("#btn_pcl_afficher_details").parent().remove();
+                                                        $(".PCL_Details_ToHide").addClass("hide");
+
+                                                        var pointsCollecteLivraison = new Array();
+                                                        pointsCollecteLivraison.push({ Latitude: '12', Longitude: '3', MarkerUrl: '/images/gmappins/gmap_pin.png', CodePays: 'FR', Numero: '12345' });
+                                                        AfficherCarte(pointsCollecteLivraison, 'MR-Map-Detail-eb8bbf71-6984-4922-8cdf');
+                                                    }
+                                                    function displayMapPartial() {
+                                                        var pointsCollecteLivraison = new Array();
+                                                        pointsCollecteLivraison.push({ Latitude: '12', Longitude: '3', MarkerUrl: '/images/gmappins/gmap_pin.png', CodePays: 'FR', Numero: '12345' });
+                                                        AfficherCarte(pointsCollecteLivraison, 'MR-Map-Detail-eb8bbf71-6984-4922-8cdf');
+                                                    }
+                                                </script>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-4">
+                                            <div class="points_relais PCL_Details hide">
+
+                                                <div class="detail-mag">
+                                                    <p class="tittle-info"><strong>Horaires d&#39;ouverture :</strong>
+                                                    </p>
+                                                    <table>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>lundi</td>
+                                                                <td>
+                                                                    10h00 - 15h00
+                                                                </td>
+                                                                <td>
+                                                                    15h30 - 19h30
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>mardi</td>
+                                                                <td>
+                                                                    10h00 - 15h00
+                                                                </td>
+                                                                <td>
+                                                                    15h30 - 19h30
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>mercredi</td>
+                                                                <td>
+                                                                    10h00 - 15h00
+                                                                </td>
+                                                                <td>
+                                                                    15h30 - 19h30
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>jeudi</td>
+                                                                <td>
+                                                                    10h00 - 15h00
+                                                                </td>
+                                                                <td>
+                                                                    15h30 - 19h30
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>vendredi</td>
+                                                                <td>
+                                                                    10h00 - 15h00
+                                                                </td>
+                                                                <td>
+                                                                    15h30 - 19h30
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>samedi</td>
+                                                                <td>
+                                                                    10h00 - 15h00
+                                                                </td>
+                                                                <td>
+                                                                    15h30 - 19h30
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>dimanche</td>
+                                                                <td colspan="2">Ferm&#233;</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-4 mt15">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-6 col-md-12">
+                                                    <div class="slide mt15 mb15 PCL_Details hide">
+                                                        <div>
+                                                            <img src="https://www.mondialrelay.fr/ww2/img/dynamique/pr.aspx?id=FR012345"
+                                                                alt="Photo Video Service" class="rad10" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-6 col-md-12">
+                                                    <div class="detail-mag mb15">
+                                                        <div class="points_relais PCL_Details hide">
+
+                                                            <div class="detail-mag">
+
+                                                                <p class="tittle-info"><strong>Services propos&#233;s
+                                                                        :</strong></p>
+                                                                <ul>
+                                                                    <li>Impression Etiquette Point Relais</li>
+                                                                </ul>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script language="javascript" type="text/javascript">
+                                    $("#btn_pcl_afficher_details_e5c30e05-25ff-4c2c-ab78-c21e869c2147").MR_AjaxLink({
+                                        target: "#detail_point_relais_e5c30e05-25ff-4c2c-ab78-c21e869c2147",
+                                        success: function () { $("#detail_point_relais_e5c30e05-25ff-4c2c-ab78-c21e869c2147").parent().slideDown(); }
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                        <div class="step-suivi line-t">
+                            <div class="col-xs-4 col-sm-3 col-md-3 ">
+                                <p class="center">11:30</p>
+                            </div>
+                            <div class="col-xs-8 col-sm-9 col-md-9">
+                                <p>Colis disponible au Point Relais</p>
+                            </div>
+                        </div>
+                        <div class="step-suivi line-t">
+                            <div class="col-xs-4 col-sm-3 col-md-3 ">
+                                <p class="center">08:27</p>
+                            </div>
+                            <div class="col-xs-8 col-sm-9 col-md-9">
+                                <p>Le livreur a pris en charge votre colis</p>
+                            </div>
+                        </div>
+                        <div class="step-suivi line-t">
+                            <div class="col-xs-4 col-sm-3 col-md-3 ">
+                                <p class="center">03:17</p>
+                            </div>
+                            <div class="col-xs-8 col-sm-9 col-md-9">
+                                <p>Prise en charge de votre colis sur notre site logistique de VILLE2.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="infos-account">
+                    <div class="bloc mb-0 infos-colis suivre pt10">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 f-right">
+                            <a class="more-details .close close" href="javascript:void(0)"><span class="icon-more
+                                    f-right"></span></a>
+                        </div>
+                        <div class="hidden-xs col-sm-1 col-md-1 col-lg-1 f-left pt10">
+                            <span class="icon-suivi_colis"><span class="path1"></span><span class="path2"></span></span>
+                        </div>
+                        <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 f-left">
+                            <p>07/11/2022</p>
+                        </div>
+                        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 f-left">
+                            <h5>Colis en cours d&#39;acheminement</h5>
+                        </div>
+                    </div>
+                    <div class="bloc bg-white detail-infos" style="display:none;">
+                        <div class="step-suivi">
+                            <div class="col-xs-4 col-sm-3 col-md-3 ">
+                                <p class="center">22:02</p>
+                            </div>
+                            <div class="col-xs-8 col-sm-9 col-md-9">
+                                <p>Colis en cours d&#39;acheminement</p>
+                            </div>
+
+                        </div>
+                        <div class="step-suivi line-t">
+                            <div class="col-xs-4 col-sm-3 col-md-3 ">
+                                <p class="center">17:59</p>
+                            </div>
+                            <div class="col-xs-8 col-sm-9 col-md-9">
+                                <p>Prise en charge de votre colis sur notre site logistique de VILLE1.</p>
+                            </div>
+                        </div>
+                        <div class="step-suivi line-t">
+                            <div class="col-xs-4 col-sm-3 col-md-3 ">
+                                <p class="center">10:49</p>
+                            </div>
+                            <div class="col-xs-8 col-sm-9 col-md-9">
+                                <p>Colis en pr&#233;paration chez l&#39;exp&#233;diteur</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var culture = 'fr-FR';
+            var codeMarque = 'FR';
+            var numeroExpedition = '123456789';
+            var token = 'whatever';
+        </script>
+        <script>
+            window.dataLayer = window.dataLayer || []
+            dataLayer.push({
+                'event': 'Suivi de Colis',
+                'CodePostal': '12345',
+                'Pays': 'FR'
+            });
+        </script>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".more-details").click(function () {
+            $(this).find('span').toggleClass("icon-minus").toggleClass("icon-more");
+
+            $(this).parent().parent().next().slideToggle("slow");
+
+            return false;
+        });
+    });
+</script>
