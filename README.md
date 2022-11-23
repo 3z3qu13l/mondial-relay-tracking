@@ -84,7 +84,15 @@ console.log(await tracking.getTracking(98081708, 35000));
     lastUpdated: "2022-11-08T10:26:00.000Z",
     created: "2022-11-07T15:39:00.000Z",
     history: [{
-        datetime: "2022-11-08T10:26:00.000Z",
+        datetime: "2022-11-07T15:39:00.000Z",
+        text: "Colis en préparation chez l'expéditeur",
+        location: undefined
+    }, {
+        datetime: "2022-11-07T16:31:00.000Z",
+        text: 'Prise en charge de votre colis sur notre site logistique de DIJON.',
+        location: 'DIJON'
+    }, {
+        datetime: "2022-11-07T17:55:00.000Z",
         text: "Colis en cours d'acheminement",
         location: undefined
     }, {
@@ -92,16 +100,8 @@ console.log(await tracking.getTracking(98081708, 35000));
         text: 'Prise en charge de votre colis sur notre site logistique de HUB LYON.',
         location: 'HUB LYON'
     }, {
-        datetime: "2022-11-07T17:55:00.000Z",
+        datetime: "2022-11-08T10:26:00.000Z",
         text: "Colis en cours d'acheminement",
-        location: undefined
-    }, {
-        datetime: "2022-11-07T16:31:00.000Z",
-        text: 'Prise en charge de votre colis sur notre site logistique de DIJON.',
-        location: 'DIJON'
-    }, {
-        datetime: "2022-11-07T15:39:00.000Z",
-        text: "Colis en préparation chez l'expéditeur",
         location: undefined
     }]
 }

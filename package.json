@@ -1,6 +1,6 @@
 {
   "name": "mondial-relay-tracking",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Mondial Relay scrapper to get delivery tracking informations",
   "engines": {
     "node": ">= 18"
@@ -15,6 +15,11 @@
   },
   "author": "3z3qu13l",
   "license": "ISC",
+  "keywords": [
+    "mondial-relay",
+    "node",
+    "tracking"
+  ],
   "dependencies": {
     "cheerio": "1.0.0-rc.12"
   }
