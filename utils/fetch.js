@@ -1,15 +1,14 @@
 'use strict';
 
-const logger = require('./logger');
 const { API_ENDPOINT } = require('./constants');
 
 module.exports = async (trackingId, postalCode) => {
     if (!trackingId) {
-        logger.error('Missing param trackingId');
+        console.error('Missing param trackingId');
         return;
     }
     if (!postalCode) {
-        logger.error('Missing param postalCode');
+        console.error('Missing param postalCode');
         return;
     }
 
@@ -30,7 +29,7 @@ module.exports = async (trackingId, postalCode) => {
             throw new Error('Bad Response');
         }
     } catch (error) {
-        logger.error('fetch', error);
+        console.error('fetch', error);
     }
     return response;
 };

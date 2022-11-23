@@ -16,65 +16,21 @@ npm install mondial-relay-tracking --save
 
 This installs the module from npm and adds it as a dependency to the application's `package.json` file.
 
-## Methods available
+## Method available
 
-### isComplete
-Returns a boolean if package delivery is complete or still ongoing
-```js
-const tracking = require('mondial-relay-tracking');
-
-// Using async/await
-console.log(await tracking.isComplete(98081708, 35000));
-// -> false
-
-// Using Promise
-tracking.isComplete(98081708, 35000).then(isCompleted => {
-    console.log(isCompleted);
-    // -> false
-});
-```
-
-### getCurrentStatus
-Returns the current tracking status
-```js
-const tracking = require('mondial-relay-tracking');
-
-// Using async/await
-console.log(await tracking.getCurrentStatus(98081708, 35000));
-// -> 'Colis en cours d'acheminement'
-```
-
-### getHistory
-Returns an array with every different steps of the delivery
-```js
-const tracking = require('mondial-relay-tracking');
-
-// Using async/await
-console.log(await tracking.getHistory(98081708, 35000));
-/*
-[{
-    datetime: "2022-11-07T17:55:00.000Z",
-    text: "Colis en cours d'acheminement",
-    location: undefined
-}, {
-    datetime: "2022-11-07T16:31:00.000Z",
-    text: 'Prise en charge de votre colis sur notre site logistique de DIJON.',
-    location: 'DIJON'
-}, {
-    datetime: "2022-11-07T15:39:00.000Z",
-    text: "Colis en préparation chez l'expéditeur",
-    location: undefined
-}]
-*/
-```
 
 ### getTracking
 Returns everything in one object
 ```js
-const tracking = require('mondial-relay-tracking');
+const trackingAPI = require('mondial-relay-tracking');
+
+// Using Promise
+trackingAPI.getTracking(98081708, 35000).then(tracking => {
+    console.log(tracking);
+});
 
 // Using async/await
-console.log(await tracking.getTracking(98081708, 35000));
+console.log(await trackingAPI.getTracking(98081708, 35000));
 /*
 {
     trackingId: '98081708',

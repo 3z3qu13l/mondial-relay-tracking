@@ -9,7 +9,7 @@ const { MILLISEC_IN_DAYS } = require('./constants');
  */
  const toDate = (dateRaw) => {
     if (!dateRaw) {
-        logger.error(`Missing param dateRaw`);
+        console.error(`Missing param dateRaw`);
         return new Date();
     }
 
@@ -19,7 +19,7 @@ const { MILLISEC_IN_DAYS } = require('./constants');
         const [, day, month, year] = datePattern.exec(dateRaw);
         date = new Date(`${month}, ${day} ${year}`);
     } catch (error) {
-        logger.error(`Cannot extract date from string: ${dateRaw}`, error);
+        console.error(`Cannot extract date from string: ${dateRaw}`, error);
         date = new Date();
     }
     return date;

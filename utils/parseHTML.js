@@ -1,7 +1,6 @@
 'use strict';
 
 const cheerio = require('cheerio');
-const logger = require('./logger');
 
 /**
  * parseHTML
@@ -10,7 +9,7 @@ const logger = require('./logger');
  */
 module.exports = (htmlString) => {
     if (!htmlString) {
-        logger.error(`Missing param htmlString`);
+        console.error(`Missing param htmlString`);
         return '';
     }
 
@@ -22,7 +21,7 @@ module.exports = (htmlString) => {
     try {
         parsedHtml = cheerio.load(cleanedHtml);
     } catch (error) {
-        logger.error('htmlparser', error);
+        console.error('htmlparser', error);
     }
     return parsedHtml;
 };

@@ -1,6 +1,6 @@
 {
   "name": "mondial-relay-tracking",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Mondial Relay scrapper to get delivery tracking informations",
   "engines": {
     "node": ">= 18"
