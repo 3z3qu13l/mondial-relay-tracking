@@ -37,8 +37,8 @@ console.log(await trackingAPI.getTracking(98081708, 35000));
     currentStatus: "Colis en cours d'acheminement",
     duration: 1,
     isComplete: true,
-    lastUpdated: "2022-11-08T10:26:00.000Z",
-    created: "2022-11-07T15:39:00.000Z",
+    lastDate: "2022-11-08T10:26:00.000Z",
+    startDate: "2022-11-07T15:39:00.000Z",
     history: [{
         datetime: "2022-11-07T15:39:00.000Z",
         text: "Colis en préparation chez l'expéditeur",
