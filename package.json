@@ -21,6 +21,6 @@
     "tracking"
   ],
   "dependencies": {
-    "cheerio": "1.1.0"
+    "cheerio": "1.1.2"
   }
 }
